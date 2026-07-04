@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coaching Institute Portal</title>
+    <style>
+        body { font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f4f7f6; margin: 0; }
+        .card { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center; width: 320px; }
+        input { width: 100%; padding: 10px; margin: 15px 0; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; font-size: 16px; }
+        button { width: 100%; padding: 10px; background-color: #1a73e8; color: white; border: none; border-radius: 4px; font-size: 16px; cursor: pointer; }
+        button:hover { background-color: #155cb4; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <!-- Step 1: Login Form View -->
+        <div id="login-view">
+            <h2>Welcome Student!</h2>
+            <p>Please enter your name to access your classes.</p>
+            <input type="text" id="student-name" placeholder="Enter Full Name..." required>
+            <button id="enter-btn">Enter Portal</button>
+        </div>
+
+        <!-- Step 2: Dashboard View (Shown after entering name) -->
+        <div id="dashboard-view" class="hidden">
+            <h2 id="welcome-message">Hello!</h2>
+            <p>Welcome back to your Coaching Dashboard.</p>
+            <p style="color: #666;"> Today's Schedule: Mathematics @ 4:00 PM</p>
+            <button id="logout-btn" style="background-color: #dc3545; margin-top: 20px;">Exit Portal</button>
+        </div>
+    </div>
+
+    <script src="scripts/login.js"></script>
+</body>
+</html>
