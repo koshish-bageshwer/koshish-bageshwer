@@ -21,8 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const savedName = localStorage.getItem('coaching_student_name');
     if (savedName) {
         showDashboard(savedName);
-        window.location.href = '../index.html';
-        return;
+        // Do not auto-redirect. Keep the portal open until the user explicitly
+        // navigates away by pressing the appropriate button.
     }
 
     enterBtn.addEventListener('click', () => {
@@ -36,6 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (enrolledStudents.includes(enteredName)) {
             localStorage.setItem('coaching_student_name', enteredName);
             showDashboard(enteredName);
+            // After successful login, close the portal and return to home.
             window.location.href = '../index.html';
         } else {
             alert('Name not found on the student roster. Please contact administration.');
@@ -54,5 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
         nameInput.value = '';
         dashboardView.classList.add('hidden');
         loginView.classList.remove('hidden');
+        // After explicit exit, navigate back to the homepage.
+        window.location.href = '../index.html';
     });
 });

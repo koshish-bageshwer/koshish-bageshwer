@@ -40,4 +40,21 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     }
+
+    // Show selected class (if any) as a badge in the header
+    const selectedClass = localStorage.getItem('selected_class');
+    function renderSelectedClass(name) {
+        if (!name) return;
+        let badge = document.getElementById('selected-class-badge');
+        if (!badge) {
+            badge = document.createElement('span');
+            badge.id = 'selected-class-badge';
+            badge.className = 'selected-class-badge';
+            const heading = document.querySelector('.heading-container');
+            if (heading) heading.appendChild(badge);
+        }
+        badge.textContent = `Class: ${name}`;
+    }
+
+    renderSelectedClass(selectedClass);
 });
